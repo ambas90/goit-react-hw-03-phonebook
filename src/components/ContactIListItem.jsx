@@ -1,10 +1,21 @@
 import PropTypes from 'prop-types';
 
-const ContactListItem = ({ name, number, id }) => {
+import {
+  ContactListItemLi,
+  ContactListItemName,
+  ContactListItemTel,
+  ContactListItemRemoveBtn,
+} from './ContactIListItemStyles';
+
+const ContactListItem = ({ name, tel, id, onDeleteContact }) => {
   return (
-    <li key={id}>
-      {name} tel: {number}
-    </li>
+    <ContactListItemLi key={id}>
+      <ContactListItemName>{name}</ContactListItemName>
+      <ContactListItemTel>{tel}</ContactListItemTel>
+      <ContactListItemRemoveBtn onClick={() => onDeleteContact(id)}>
+        Delete
+      </ContactListItemRemoveBtn>
+    </ContactListItemLi>
   );
 };
 
