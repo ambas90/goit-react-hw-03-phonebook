@@ -48,11 +48,9 @@ export default class App extends Component {
   };
 
   loadContacts = () => {
-    if (localStorage.getItem('contacts') !== null) {
-      const savedContacts = JSON.parse(localStorage.getItem('contacts'));
-      this.setState({
-        contacts: savedContacts,
-      });
+    const savedContacts = JSON.parse(localStorage.getItem('contacts'));
+    if (savedContacts) {
+      this.setState({ contacts: savedContacts });
     }
   };
 
